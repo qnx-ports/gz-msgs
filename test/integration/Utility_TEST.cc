@@ -606,8 +606,8 @@ TEST(UtilityTest, ConvertFuelMetadata)
     EXPECT_EQ("A model for testing", metaMsg.description());
     EXPECT_EQ("model.sdf", metaMsg.model().file());
     EXPECT_EQ("sdf", metaMsg.model().file_format().name());
-    EXPECT_EQ(1, metaMsg.model().file_format().version().major());
-    EXPECT_EQ(7, metaMsg.model().file_format().version().minor());
+    EXPECT_EQ(1, metaMsg.model().file_format().version()._major());
+    EXPECT_EQ(7, metaMsg.model().file_format().version()._minor());
     EXPECT_EQ(1, metaMsg.authors().size());
     EXPECT_EQ("Foo Bar", metaMsg.authors(0).name());
     EXPECT_EQ("foo@bar.org", metaMsg.authors(0).email());
@@ -630,8 +630,8 @@ TEST(UtilityTest, ConvertFuelMetadata)
     EXPECT_EQ("A world for testing", metaMsg.description());
     EXPECT_EQ("world.sdf", metaMsg.world().file());
     EXPECT_EQ("sdf", metaMsg.world().file_format().name());
-    EXPECT_EQ(1, metaMsg.world().file_format().version().major());
-    EXPECT_EQ(7, metaMsg.world().file_format().version().minor());
+    EXPECT_EQ(1, metaMsg.world().file_format().version()._major());
+    EXPECT_EQ(7, metaMsg.world().file_format().version()._minor());
     EXPECT_EQ(0, metaMsg.authors().size());
     EXPECT_EQ(0, metaMsg.dependencies().size());
   }
@@ -650,9 +650,9 @@ TEST(UtilityTest, ConvertFuelMetadata)
     metaMsg.set_version(2);
     metaMsg.mutable_world()->mutable_file_format()->set_name("sdf");
     metaMsg.mutable_world()->mutable_file_format()
-           ->mutable_version()->set_major(1);
+           ->mutable_version()->set__major(1);
     metaMsg.mutable_world()->mutable_file_format()
-           ->mutable_version()->set_minor(7);
+           ->mutable_version()->set__minor(7);
     EXPECT_TRUE(msgs::ConvertFuelMetadata(metaMsg, modelConfig));
 
     EXPECT_EQ(worldConfigInput, modelConfig);
@@ -667,9 +667,9 @@ TEST(UtilityTest, ConvertFuelMetadata)
     metaMsg.set_version(3);
     metaMsg.mutable_model()->mutable_file_format()->set_name("sdf");
     metaMsg.mutable_model()->mutable_file_format()
-           ->mutable_version()->set_major(1);
+           ->mutable_version()->set__major(1);
     metaMsg.mutable_model()->mutable_file_format()
-           ->mutable_version()->set_minor(7);
+           ->mutable_version()->set__minor(7);
     EXPECT_TRUE(msgs::ConvertFuelMetadata(metaMsg, modelConfig));
 
     metaMsg.add_authors()->set_name("Foo Bar");

@@ -28,10 +28,10 @@ option java_outer_classname = "Version";
 message Version
 {
   /// \brief Major version.
-  int32 major = 1;
+  int32 _major = 1;
 
   /// \brief Minor version.
-  int32 minor = 2;
+  int32 _minor = 2;
 
   /// \brief Patch version.
   int32 patch = 3;

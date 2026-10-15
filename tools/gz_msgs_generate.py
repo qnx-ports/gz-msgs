@@ -65,6 +65,7 @@ def main(argv=sys.argv[1:]):
     # First generate the base cpp files
     cmd = [args.protoc_exec]
 
+    cmd += ['--proto_path=/usr/include']
     for path in args.proto_path:
         cmd += [f'--proto_path={path}']
 

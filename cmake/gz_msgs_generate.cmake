@@ -172,6 +172,7 @@ function(gz_msgs_generate_desc_impl)
   endif()
 
   set(ARGS)
+  list(APPEND ARGS -I/usr/include)
   list(APPEND ARGS -I${generate_messages_PROTO_PATH})
   list(APPEND ARGS --descriptor_set_out=${generate_messages_OUTPUT_FILENAME})
   list(APPEND ARGS --include_imports)

@@ -164,8 +164,8 @@ inline bool ConvertFuelMetadata(const std::string &_modelConfigStr,
           meta.mutable_world()->set_file(trimmed(elem->GetText()));
         }
 
-        verMsg->set_major(ver.Major());
-        verMsg->set_minor(ver.Minor());
+        verMsg->set__major(ver.Major());
+        verMsg->set__minor(ver.Minor());
         verMsg->set_patch(ver.Patch());
         verMsg->set_prerelease(ver.Prerelease());
         verMsg->set_build(ver.Build());
@@ -202,8 +202,8 @@ inline bool ConvertFuelMetadata(const msgs::FuelMetadata &_meta,
     out << "<?xml version='1.0'?>\n"
         << "  <model>\n"
         << "    <sdf version='"
-        << _meta.model().file_format().version().major()
-        << "." << _meta.model().file_format().version().minor() << "'>"
+        << _meta.model().file_format().version()._major()
+        << "." << _meta.model().file_format().version()._minor() << "'>"
         << _meta.model().file() << "</sdf>\n";
   }
   else
@@ -217,8 +217,8 @@ inline bool ConvertFuelMetadata(const msgs::FuelMetadata &_meta,
     out << "<?xml version='1.0'?>\n"
         << "  <world>\n"
         << "    <sdf version='"
-        << _meta.world().file_format().version().major()
-        << "." << _meta.world().file_format().version().minor() << "'>"
+        << _meta.world().file_format().version()._major()
+        << "." << _meta.world().file_format().version()._minor() << "'>"
         << _meta.world().file() << "</sdf>\n";
   }
 
